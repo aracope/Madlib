@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Create Your Own Madlib</h2>
+<form action="{{ url_for('create_story') }}" method="POST">
+    <label for="story_title">Story Title:</label>
+    <input type="text" id="story_title" name="story_title" placeholder="Fairy Tale Castle" required>
+
+    <label for="story_template">Story Template (use {word} for placeholders):</label>
+    <textarea id="story_template" name="story_template" rows="5"
+        placeholder="Example: Once upon a time in a {place}, a {adjective} {noun} went to {place} and {verb}."
+        required></textarea>
+
+    <label for="prompts">Enter prompts (comma-separated):</label>
+    <input type="text" id="prompts" name="prompts" value="place, adjective, noun, verb" required>
+
+    <button type="submit">Save Story</button>
+</form>
+
+{% endblock %}

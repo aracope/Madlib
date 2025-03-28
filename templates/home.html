@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Choose a story to fill in:</p>
+<form action="{{ url_for('ask_questions') }}" method="GET">
+    <label for="story">Choose a story:</label>
+    <select name="story" id="story">
+        {% for story_name, story in stories.items() %}
+        <option value="{{ story_name }}">{{ story_name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Start</button>
+</form>
+
+{% endblock %}
